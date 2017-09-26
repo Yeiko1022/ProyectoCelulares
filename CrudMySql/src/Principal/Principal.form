@@ -60,12 +60,12 @@
                           <EmptySpace pref="247" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btn_salir_principal" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="btn_consultar_usuarios_principal2" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="btn_consultar_usuarios_principal1" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="btn_consultar_usuarios_principal3" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="btn_insertar_usuarios_principal" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="btn_consultar_usuarios_principal" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="btn_crear_usuario_principal" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="btn_crear_venta_principal" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="btn_insertar_celular_principal" min="-2" pref="180" max="-2" attributes="0"/>
                               <Component id="btn_consultar_celulares_principal" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="btn_consultar_usuarios_principal4" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="btn_consultar_venta_principal" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -80,17 +80,17 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_insertar_usuarios_principal" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btn_insertar_celular_principal" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn_consultar_celulares_principal" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_consultar_usuarios_principal1" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btn_crear_usuario_principal" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_consultar_usuarios_principal2" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btn_consultar_usuarios_principal" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_consultar_usuarios_principal3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btn_crear_venta_principal" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_consultar_usuarios_principal4" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btn_consultar_venta_principal" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace pref="29" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -146,7 +146,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_celulares_principalActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_insertar_usuarios_principal">
+        <Component class="javax.swing.JButton" name="btn_insertar_celular_principal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -154,10 +154,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="1 - Ingresar Celular"/>
+            <Property name="text" type="java.lang.String" value="1 - Insertar Celular"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_insertar_usuarios_principalActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_insertar_celular_principalActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -179,7 +179,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salir_principalActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_consultar_usuarios_principal1">
+        <Component class="javax.swing.JButton" name="btn_crear_usuario_principal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -190,10 +190,10 @@
             <Property name="text" type="java.lang.String" value="3 - Crear Usuario"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_usuarios_principal1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_crear_usuario_principalActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_consultar_usuarios_principal2">
+        <Component class="javax.swing.JButton" name="btn_consultar_usuarios_principal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -201,13 +201,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="4 - Ver Usuarios"/>
+            <Property name="text" type="java.lang.String" value="4 - Consultar Usuarios"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_usuarios_principal2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_usuarios_principalActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_consultar_usuarios_principal3">
+        <Component class="javax.swing.JButton" name="btn_crear_venta_principal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -215,13 +215,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="4 - Ver Usuarios"/>
+            <Property name="text" type="java.lang.String" value="5 - Crear Venta"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_usuarios_principal3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_crear_venta_principalActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_consultar_usuarios_principal4">
+        <Component class="javax.swing.JButton" name="btn_consultar_venta_principal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -229,10 +229,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="4 - Ver Usuarios"/>
+            <Property name="text" type="java.lang.String" value="6 - Ver Ventas"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_usuarios_principal4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_consultar_venta_principalActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

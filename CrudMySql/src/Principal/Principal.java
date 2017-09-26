@@ -28,13 +28,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btn_consultar_celulares_principal = new javax.swing.JButton();
-        btn_insertar_usuarios_principal = new javax.swing.JButton();
+        btn_insertar_celular_principal = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btn_salir_principal = new javax.swing.JButton();
-        btn_consultar_usuarios_principal1 = new javax.swing.JButton();
-        btn_consultar_usuarios_principal2 = new javax.swing.JButton();
-        btn_consultar_usuarios_principal3 = new javax.swing.JButton();
-        btn_consultar_usuarios_principal4 = new javax.swing.JButton();
+        btn_crear_usuario_principal = new javax.swing.JButton();
+        btn_consultar_usuarios_principal = new javax.swing.JButton();
+        btn_crear_venta_principal = new javax.swing.JButton();
+        btn_consultar_venta_principal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,12 +63,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btn_insertar_usuarios_principal.setBackground(new java.awt.Color(255, 0, 51));
-        btn_insertar_usuarios_principal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_insertar_usuarios_principal.setText("1 - Ingresar Celular");
-        btn_insertar_usuarios_principal.addActionListener(new java.awt.event.ActionListener() {
+        btn_insertar_celular_principal.setBackground(new java.awt.Color(255, 0, 51));
+        btn_insertar_celular_principal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_insertar_celular_principal.setText("1 - Insertar Celular");
+        btn_insertar_celular_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_insertar_usuarios_principalActionPerformed(evt);
+                btn_insertar_celular_principalActionPerformed(evt);
             }
         });
 
@@ -83,39 +83,39 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btn_consultar_usuarios_principal1.setBackground(new java.awt.Color(255, 0, 51));
-        btn_consultar_usuarios_principal1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_consultar_usuarios_principal1.setText("3 - Crear Usuario");
-        btn_consultar_usuarios_principal1.addActionListener(new java.awt.event.ActionListener() {
+        btn_crear_usuario_principal.setBackground(new java.awt.Color(255, 0, 51));
+        btn_crear_usuario_principal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_crear_usuario_principal.setText("3 - Crear Usuario");
+        btn_crear_usuario_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultar_usuarios_principal1ActionPerformed(evt);
+                btn_crear_usuario_principalActionPerformed(evt);
             }
         });
 
-        btn_consultar_usuarios_principal2.setBackground(new java.awt.Color(255, 0, 51));
-        btn_consultar_usuarios_principal2.setForeground(new java.awt.Color(255, 255, 255));
-        btn_consultar_usuarios_principal2.setText("4 - Ver Usuarios");
-        btn_consultar_usuarios_principal2.addActionListener(new java.awt.event.ActionListener() {
+        btn_consultar_usuarios_principal.setBackground(new java.awt.Color(255, 0, 51));
+        btn_consultar_usuarios_principal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_consultar_usuarios_principal.setText("4 - Consultar Usuarios");
+        btn_consultar_usuarios_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultar_usuarios_principal2ActionPerformed(evt);
+                btn_consultar_usuarios_principalActionPerformed(evt);
             }
         });
 
-        btn_consultar_usuarios_principal3.setBackground(new java.awt.Color(255, 0, 51));
-        btn_consultar_usuarios_principal3.setForeground(new java.awt.Color(255, 255, 255));
-        btn_consultar_usuarios_principal3.setText("4 - Ver Usuarios");
-        btn_consultar_usuarios_principal3.addActionListener(new java.awt.event.ActionListener() {
+        btn_crear_venta_principal.setBackground(new java.awt.Color(255, 0, 51));
+        btn_crear_venta_principal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_crear_venta_principal.setText("5 - Crear Venta");
+        btn_crear_venta_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultar_usuarios_principal3ActionPerformed(evt);
+                btn_crear_venta_principalActionPerformed(evt);
             }
         });
 
-        btn_consultar_usuarios_principal4.setBackground(new java.awt.Color(255, 0, 51));
-        btn_consultar_usuarios_principal4.setForeground(new java.awt.Color(255, 255, 255));
-        btn_consultar_usuarios_principal4.setText("4 - Ver Usuarios");
-        btn_consultar_usuarios_principal4.addActionListener(new java.awt.event.ActionListener() {
+        btn_consultar_venta_principal.setBackground(new java.awt.Color(255, 0, 51));
+        btn_consultar_venta_principal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_consultar_venta_principal.setText("6 - Ver Ventas");
+        btn_consultar_venta_principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultar_usuarios_principal4ActionPerformed(evt);
+                btn_consultar_venta_principalActionPerformed(evt);
             }
         });
 
@@ -134,12 +134,12 @@ public class Principal extends javax.swing.JFrame {
                         .addContainerGap(247, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btn_salir_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_consultar_usuarios_principal2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_consultar_usuarios_principal1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_consultar_usuarios_principal3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_insertar_usuarios_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_consultar_usuarios_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_crear_usuario_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_crear_venta_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_insertar_celular_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_consultar_celulares_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_consultar_usuarios_principal4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btn_consultar_venta_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(260, 260, 260))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,17 +149,17 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_insertar_usuarios_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_insertar_celular_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_consultar_celulares_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_consultar_usuarios_principal1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_crear_usuario_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_consultar_usuarios_principal2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_consultar_usuarios_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_consultar_usuarios_principal3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_crear_venta_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_consultar_usuarios_principal4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_consultar_venta_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -183,7 +183,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_consultar_celulares_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_celulares_principalActionPerformed
         try {
-            Listar vistaListar_Celulares = new Listar_Usuarios();
+            Listar_Celulares vistaListar_Celulares = new Listar_Celulares();
             vistaListar_Celulares.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
@@ -191,31 +191,39 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_consultar_celulares_principalActionPerformed
 
-    private void btn_insertar_usuarios_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertar_usuarios_principalActionPerformed
-        Insertar vistaInsertar = new Insertar();
-        vistaInsertar.setVisible(true);
+    private void btn_insertar_celular_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertar_celular_principalActionPerformed
+        Insertar_celular vistaInsertar_celular = new Insertar_celular();
+        vistaInsertar_celular.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btn_insertar_usuarios_principalActionPerformed
+    }//GEN-LAST:event_btn_insertar_celular_principalActionPerformed
 
     private void btn_salir_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salir_principalActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_salir_principalActionPerformed
 
-    private void btn_consultar_usuarios_principal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_usuarios_principal1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_consultar_usuarios_principal1ActionPerformed
+    private void btn_crear_usuario_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_usuario_principalActionPerformed
+        Insertar_Usuario vistaInsertar_Usuario = new Insertar_Usuario();
+        vistaInsertar_Usuario.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_crear_usuario_principalActionPerformed
 
-    private void btn_consultar_usuarios_principal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_usuarios_principal2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_consultar_usuarios_principal2ActionPerformed
+    private void btn_consultar_usuarios_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_usuarios_principalActionPerformed
+        try {
+            Listar_Usuarios vistaListar_Usuarios = new Listar_Usuarios();
+            vistaListar_Usuarios.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_consultar_usuarios_principalActionPerformed
 
-    private void btn_consultar_usuarios_principal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_usuarios_principal3ActionPerformed
+    private void btn_crear_venta_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_venta_principalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_consultar_usuarios_principal3ActionPerformed
+    }//GEN-LAST:event_btn_crear_venta_principalActionPerformed
 
-    private void btn_consultar_usuarios_principal4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_usuarios_principal4ActionPerformed
+    private void btn_consultar_venta_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_venta_principalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_consultar_usuarios_principal4ActionPerformed
+    }//GEN-LAST:event_btn_consultar_venta_principalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,11 +262,11 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_consultar_celulares_principal;
-    private javax.swing.JButton btn_consultar_usuarios_principal1;
-    private javax.swing.JButton btn_consultar_usuarios_principal2;
-    private javax.swing.JButton btn_consultar_usuarios_principal3;
-    private javax.swing.JButton btn_consultar_usuarios_principal4;
-    private javax.swing.JButton btn_insertar_usuarios_principal;
+    private javax.swing.JButton btn_consultar_usuarios_principal;
+    private javax.swing.JButton btn_consultar_venta_principal;
+    private javax.swing.JButton btn_crear_usuario_principal;
+    private javax.swing.JButton btn_crear_venta_principal;
+    private javax.swing.JButton btn_insertar_celular_principal;
     private javax.swing.JButton btn_salir_principal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
