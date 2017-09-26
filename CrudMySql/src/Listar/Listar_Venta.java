@@ -11,11 +11,11 @@ import Insertar.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class Listar_Usuarios extends javax.swing.JFrame {
+public class Listar_Venta extends javax.swing.JFrame {
     JTable tabla;
     ResultSet resultadoTabla;
     
-    public Listar_Usuarios() throws SQLException {
+    public Listar_Venta() throws SQLException {
         initComponents();
         id_update.setVisible(false);
         disableInputsUpdate();
@@ -26,10 +26,9 @@ public class Listar_Usuarios extends javax.swing.JFrame {
                     enableInputsUpdate();
                     int fila = TablaMostrarUsers.getSelectedRow();
                     id_update.setText(TablaMostrarUsers.getValueAt(fila, 0).toString());
-                    nombres_update.setText(TablaMostrarUsers.getValueAt(fila, 1).toString());
-                    apellidos_update.setText(TablaMostrarUsers.getValueAt(fila, 2).toString());
-                    correo_update.setText(TablaMostrarUsers.getValueAt(fila, 3).toString());
-                    telefono_update.setText(TablaMostrarUsers.getValueAt(fila, 4).toString());
+                    id_user_update.setText(TablaMostrarUsers.getValueAt(fila, 1).toString());
+                    tamaño_pantalla_update.setText(TablaMostrarUsers.getValueAt(fila, 2).toString());
+                    marca_update.setText(TablaMostrarUsers.getValueAt(fila, 3).toString());
                 }
             }
             
@@ -41,25 +40,23 @@ public class Listar_Usuarios extends javax.swing.JFrame {
         tabla = this.TablaMostrarUsers;
         tabla.setModel(dfm);
         
-        dfm.setColumnIdentifiers(new Object[]{
-            "Identificación",
-            "Nombre(s)", 
-            "Apellidos",
-            "Correo",
-            "Telefono"
+        dfm.setColumnIdentifiers(new Object[]{ //Con esto se cambia el titulo de la tabla
+            "Id de la Venta",
+            "N° Identificación Comprador", 
+            "Imei",
+            "Fecha de Venta",
         });
         
         Conexion connect = new Conexion();
-        resultadoTabla = this.SelectAllUsers("usuario");
+        resultadoTabla = this.SelectAllVenta("salida_celular");
         
         try{
             while(resultadoTabla.next()){
                 dfm.addRow(new Object[]{
-                    resultadoTabla.getString("id_usuario"),
-                    resultadoTabla.getString("nombre"), 
-                    resultadoTabla.getString("apellidos"), 
-                    resultadoTabla.getString("telefono"), 
-                    resultadoTabla.getString("correo")                  
+                    resultadoTabla.getString("id_venta"),
+                    resultadoTabla.getString("id_usuario"), 
+                    resultadoTabla.getString("Imei"), 
+                    resultadoTabla.getString("fecha_venta")             
                 });
             }
         }catch(Exception e){
@@ -70,30 +67,27 @@ public class Listar_Usuarios extends javax.swing.JFrame {
     }
     
     void disableInputsUpdate(){
-        nombres_update.setEnabled(false);
-        apellidos_update.setEnabled(false);
-        correo_update.setEnabled(false);
-        telefono_update.setEnabled(false);
+        id_user_update.setEnabled(false);
+        tamaño_pantalla_update.setEnabled(false);
+        marca_update.setEnabled(false);
         btn_update.setVisible(false);
         eliminar_dato.setVisible(false);
-        nombres_update.setText("");
-        apellidos_update.setText("");
-        correo_update.setText("");
-        telefono_update.setText("");
+        id_user_update.setText("");
+        tamaño_pantalla_update.setText("");
+        marca_update.setText("");
         btn_update.setVisible(false);
         eliminar_dato.setVisible(false);
     }
     
     void enableInputsUpdate(){
-        nombres_update.setEnabled(true);
-        apellidos_update.setEnabled(true);
-        correo_update.setEnabled(true);
-        telefono_update.setEnabled(true);
+        id_user_update.setEnabled(true);
+        tamaño_pantalla_update.setEnabled(true);
+        marca_update.setEnabled(true);
         btn_update.setVisible(true);
         eliminar_dato.setVisible(true);
     }
 
-    public ResultSet SelectAllUsers(String table){
+    public ResultSet SelectAllVenta(String table){
         Conexion mysql = new Conexion();
         Connection connect = mysql.Conectar();
         Statement st;
@@ -119,15 +113,13 @@ public class Listar_Usuarios extends javax.swing.JFrame {
         btn_volver_listar = new javax.swing.JButton();
         btn_salir_listar = new javax.swing.JButton();
         btn_insertar_listar = new javax.swing.JButton();
-        nombres_update = new javax.swing.JTextField();
-        apellidos_update = new javax.swing.JTextField();
-        correo_update = new javax.swing.JTextField();
-        telefono_update = new javax.swing.JTextField();
+        id_user_update = new javax.swing.JTextField();
+        tamaño_pantalla_update = new javax.swing.JTextField();
+        marca_update = new javax.swing.JTextField();
         btn_update = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Tamaño_Pantalla = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         eliminar_dato = new javax.swing.JButton();
         id_update = new javax.swing.JTextField();
 
@@ -138,7 +130,7 @@ public class Listar_Usuarios extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Usuarios");
+        jLabel1.setText("Ventas");
 
         TablaMostrarUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,7 +147,7 @@ public class Listar_Usuarios extends javax.swing.JFrame {
 
         btn_volver_listar.setBackground(new java.awt.Color(255, 0, 51));
         btn_volver_listar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_volver_listar.setText("Atras");
+        btn_volver_listar.setText("Volver");
         btn_volver_listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_volver_listarActionPerformed(evt);
@@ -164,7 +156,7 @@ public class Listar_Usuarios extends javax.swing.JFrame {
 
         btn_salir_listar.setBackground(new java.awt.Color(255, 0, 51));
         btn_salir_listar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_salir_listar.setText("Salir");
+        btn_salir_listar.setText("SALIR");
         btn_salir_listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salir_listarActionPerformed(evt);
@@ -173,7 +165,7 @@ public class Listar_Usuarios extends javax.swing.JFrame {
 
         btn_insertar_listar.setBackground(new java.awt.Color(255, 0, 51));
         btn_insertar_listar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_insertar_listar.setText("Insertar Usuario");
+        btn_insertar_listar.setText("Nueva Venta");
         btn_insertar_listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_insertar_listarActionPerformed(evt);
@@ -189,26 +181,18 @@ public class Listar_Usuarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Nombre(s):");
+        jLabel2.setText("Id Comprador: ");
 
-        jLabel3.setText("Apellidos:");
+        Tamaño_Pantalla.setText("Imei: ");
 
-        jLabel4.setText("Correo:");
-
-        jLabel5.setText("Telefono:");
+        jLabel4.setText("Fecha de Venta:");
 
         eliminar_dato.setBackground(new java.awt.Color(255, 0, 51));
         eliminar_dato.setForeground(new java.awt.Color(255, 255, 255));
-        eliminar_dato.setText("Eliminar Usuario");
+        eliminar_dato.setText("Eliminar Celular");
         eliminar_dato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminar_datoActionPerformed(evt);
-            }
-        });
-
-        id_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_updateActionPerformed(evt);
             }
         });
 
@@ -217,45 +201,39 @@ public class Listar_Usuarios extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_insertar_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_volver_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_salir_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(id_user_update)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btn_update, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_insertar_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_volver_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_salir_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombres_update)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 200, Short.MAX_VALUE))
-                            .addComponent(telefono_update))
-                        .addGap(18, 18, 18)
+                            .addComponent(tamaño_pantalla_update, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Tamaño_Pantalla))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(apellidos_update, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(correo_update, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(eliminar_dato, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(id_update, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel4)
+                            .addComponent(marca_update, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(eliminar_dato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(id_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,29 +243,26 @@ public class Listar_Usuarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(Tamaño_Pantalla)))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombres_update, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apellidos_update, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correo_update, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eliminar_dato, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(telefono_update, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(id_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(id_user_update, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tamaño_pantalla_update, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(marca_update, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_volver_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminar_dato, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(id_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertar_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_volver_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_salir_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -317,40 +292,38 @@ public class Listar_Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_volver_listarActionPerformed
 
     private void btn_insertar_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertar_listarActionPerformed
-        Insertar_Usuario vistaInsertar_Usuario = new Insertar_Usuario();
-        vistaInsertar_Usuario.setVisible(true);
+        Insertar_celular vistaInsertar_celular = new Insertar_celular();
+        vistaInsertar_celular.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_insertar_listarActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         Conexion mysql = new Conexion();
         Connection connect = mysql.Conectar();
-        String id_persona, nombre_nuevo, apellido_nuevo, correo_nuevo, telefono_nuevo;
+        String id_venta, id_usuario, Imei, fecha_venta;
         String SQL="", messageSuccess="";
         
-        id_persona = id_update.getText();
-        nombre_nuevo = nombres_update.getText();
-        apellido_nuevo = apellidos_update.getText();
-        correo_nuevo = correo_update.getText();
-        telefono_nuevo = telefono_update.getText();
+        id_venta = id_update.getText();
+        id_usuario = id_user_update.getText();
+        Imei = tamaño_pantalla_update.getText();
+        fecha_venta = marca_update.getText();
         
-        SQL = "UPDATE usuario SET nombre = ?, apellidos = ?, telefono = ?, correo = ? WHERE id_usuario = ?";
+        SQL = "UPDATE salida_celular SET id_usuario = ?, Imei = ?, fecha_venta = ? WHERE id_venta = ?";
         messageSuccess = "Se han actualizado los datos correctamente";
         
         try{
             PreparedStatement bindParams = connect.prepareStatement(SQL);
-            bindParams.setString(1, nombre_nuevo);
-            bindParams.setString(2, apellido_nuevo);
-            bindParams.setString(3, telefono_nuevo);
-            bindParams.setString(4, correo_nuevo);
-            bindParams.setString(5, id_persona);
+            bindParams.setString(1, id_usuario);
+            bindParams.setString(2, Imei);
+            bindParams.setString(3, fecha_venta);
+            bindParams.setString(4, id_venta);
             
             int affectedRows = bindParams.executeUpdate();
             
             if (affectedRows > 0){
                 JOptionPane.showMessageDialog(null, messageSuccess);
                 disableInputsUpdate();
-                Listar_Usuarios viewListar = new Listar_Usuarios();
+                Listar_Venta viewListar = new Listar_Venta();
                 viewListar.setVisible(true);
                 this.setVisible(false);
             }
@@ -366,8 +339,8 @@ public class Listar_Usuarios extends javax.swing.JFrame {
         String id_delete = id_update.getText();        
         String SQL = "", messageSuccess = "";
         
-        SQL = "DELETE FROM usuario WHERE id_usuario = ?";
-        messageSuccess = "Se ha eliminado el usuario correctamente";
+        SQL = "DELETE FROM salida_celular WHERE id_venta = ?";
+        messageSuccess = "Se ha eliminado el celular correctamente";
         
         try{
             PreparedStatement bindParams = connect.prepareStatement(SQL);
@@ -378,7 +351,7 @@ public class Listar_Usuarios extends javax.swing.JFrame {
             if (affectedRows > 0){
                 JOptionPane.showMessageDialog(null, messageSuccess);
                 disableInputsUpdate();
-                Listar_Usuarios viewListar = new Listar_Usuarios();
+                Listar_Venta viewListar = new Listar_Venta();
                 viewListar.setVisible(true);
                 this.setVisible(false);
             }
@@ -386,10 +359,6 @@ public class Listar_Usuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_eliminar_datoActionPerformed
-
-    private void id_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_updateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_id_updateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,14 +377,28 @@ public class Listar_Usuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listar_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Venta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listar_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Venta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listar_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Venta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listar_Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_Venta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -423,9 +406,9 @@ public class Listar_Usuarios extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Listar_Usuarios().setVisible(true);
+                    new Listar_Venta().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(Listar_Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Listar_Venta.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -433,22 +416,20 @@ public class Listar_Usuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaMostrarUsers;
-    private javax.swing.JTextField apellidos_update;
+    private javax.swing.JLabel Tamaño_Pantalla;
     private javax.swing.JButton btn_insertar_listar;
     private javax.swing.JButton btn_salir_listar;
     private javax.swing.JButton btn_update;
     private javax.swing.JButton btn_volver_listar;
-    private javax.swing.JTextField correo_update;
     private javax.swing.JButton eliminar_dato;
     private javax.swing.JTextField id_update;
+    private javax.swing.JTextField id_user_update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nombres_update;
-    private javax.swing.JTextField telefono_update;
+    private javax.swing.JTextField marca_update;
+    private javax.swing.JTextField tamaño_pantalla_update;
     // End of variables declaration//GEN-END:variables
 }

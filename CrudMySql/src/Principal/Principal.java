@@ -222,7 +222,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_crear_venta_principalActionPerformed
 
     private void btn_consultar_venta_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultar_venta_principalActionPerformed
-        // TODO add your handling code here:
+        try {
+            Listar_Venta vistaListar_Venta = new Listar_Venta();
+            vistaListar_Venta.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_consultar_venta_principalActionPerformed
 
     /**
